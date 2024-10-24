@@ -1,20 +1,19 @@
 package com.example.tracker;
 
+import com.example.tracker.scenes.introScene;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class budgetTracker extends Application {
+    public static Stage mainStage;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(budgetTracker.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+        mainStage = stage;
+        mainStage.setTitle("Budget Tracker");
+        mainStage.setScene(new introScene());
+        mainStage.show();
     }
 
     public static void main(String[] args) {
