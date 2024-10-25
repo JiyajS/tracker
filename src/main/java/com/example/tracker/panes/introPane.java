@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -63,10 +64,18 @@ public class introPane extends BorderPane {
         image2.setCycleCount(1);
         image2.play();
 
-        Button b1 = new Button("Start Tracking");
-        this.setBottom(b1);
+//        Button b1 = new Button("Start Tracking");
+////        b1.setLineSpacing(0);
+//        b1.setScaleY(1);
+//        b1.setPadding(new Insets(10));
+//        this.setBottom(b1);
 
-        b1.setOnMouseClicked(e->{
+        Text start = new Text(320,500,"Start Tracking >>>>");
+        start.setFont(new Font("New Times Roman",30));
+        this.getChildren().add(start);
+
+
+        start.setOnMouseClicked(e->{
             budgetTracker.mainStage.setScene(new loginScene());
         });
 
