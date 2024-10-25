@@ -23,23 +23,18 @@ public class loginPane extends BorderPane {
 
             TextField usernameField = new TextField();
             usernameField.setPromptText("Username");
-            usernameField.setStyle("-fx-font-size: 17px;");
 
             PasswordField passwordField = new PasswordField();
             passwordField.setPromptText("Password");
-            passwordField.setStyle("-fx-font-size: 17px;");
 
-            loginForm.getChildren().addAll(usernameField, passwordField); 
+            loginForm.getChildren().addAll(usernameField, passwordField);
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(3), loginForm);
             fadeTransition.setFromValue(0.0);
             fadeTransition.setToValue(1.0);
             fadeTransition.play();
-
             Button login = new Button("login");
-            login.setStyle("-fx-background-color: #ff6347; -fx-text-fill: black; -fx-font-size: 16px;");
-            loginForm.getChildren().add(login);
-
+            loginForm.getChildren().add(login);g
             this.setCenter(loginForm);
 
 
