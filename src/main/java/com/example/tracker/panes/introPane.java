@@ -64,12 +64,6 @@ public class introPane extends BorderPane {
         image2.setCycleCount(1);
         image2.play();
 
-//        Button b1 = new Button("Start Tracking");
-////        b1.setLineSpacing(0);
-//        b1.setScaleY(1);
-//        b1.setPadding(new Insets(10));
-//        this.setBottom(b1);
-
         Text start = new Text(320,500,"Start Tracking >>>>");
         start.setFont(new Font("New Times Roman",30));
         this.getChildren().add(start);
