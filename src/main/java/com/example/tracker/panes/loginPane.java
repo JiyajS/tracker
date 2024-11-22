@@ -1,35 +1,48 @@
 package com.example.tracker.panes;
 
+import javafx.scene.layout.BorderPane;
+import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
-import javafx.scene.control.*;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 public class loginPane extends BorderPane {
-    public loginPane() {
-        // Create the menu bar
-        MenuBar menu = new MenuBar();
-        Menu credits = new Menu("Credits");
-        MenuItem exit = new MenuItem("Exit");
+    public loginPane(){
 
-        credits.getItems().add(exit);
-        menu.getMenus().add(credits);
 
-        // Set the menu bar at the top of the BorderPane
-        this.setTop(menu);
+        VBox loginForm = new VBox();
+        loginForm.setSpacing(14);
+        loginForm.setPadding(new Insets(20));
+        loginForm.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255, 0.4), new CornerRadii(16), Insets.EMPTY)));
+        loginForm.setAlignment(Pos.CENTER);
+        loginForm.setMaxSize(430, 400);
 
-        // Create a TabPane with tabs
-        TabPane tabPane = new TabPane();
+        TextField usernameField = new TextField();
+        usernameField.setPromptText("Username");
+        usernameField.setStyle("-fx-font-size: 17px;");
 
-        Tab addItem = new Tab("Add Item");
-        addItem.setClosable(false);
+        PasswordField passwordField = new PasswordField();
+        passwordField.setPromptText("Password");
+        passwordField.setStyle("-fx-font-size: 17px;");
 
-        Tab removeItem = new Tab("Remove Item");
-        removeItem.setClosable(false);
+        loginForm.getChildren().addAll(usernameField, passwordField);
 
-        tabPane.getTabs().addAll(addItem, removeItem);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(3), loginForm);
+        fadeTransition.setFromValue(0.0);
+        fadeTransition.setToValue(1.0);
+        fadeTransition.play();
 
-        // Set the TabPane in the center of the BorderPane
-        this.setCenter(tabPane);
+        Button login = new Button("login");
+        login.setStyle("-fx-background-color: #ff6347; -fx-text-fill: black; -fx-font-size: 16px;");
+        loginForm.getChildren().add(login);
+
+        this.setCenter(loginForm);
+
+
     }
 }
