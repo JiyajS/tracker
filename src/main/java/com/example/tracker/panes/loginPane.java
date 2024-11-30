@@ -1,5 +1,10 @@
 package com.example.tracker.panes;
 
+
+import static com.example.tracker.database.Const.*;
+import static com.example.tracker.database.DBConst.*;
+
+import com.example.tracker.database.Database;
 import javafx.scene.layout.BorderPane;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
@@ -14,6 +19,7 @@ import javafx.util.Duration;
 public class loginPane extends BorderPane {
     public loginPane(){
 
+        Button loginButton = new Button("Login");
 
         VBox loginForm = new VBox();
         loginForm.setSpacing(14);
@@ -26,11 +32,27 @@ public class loginPane extends BorderPane {
         usernameField.setPromptText("Username");
         usernameField.setStyle("-fx-font-size: 17px;");
 
-        PasswordField passwordField = new PasswordField();
-        passwordField.setPromptText("Password");
-        passwordField.setStyle("-fx-font-size: 17px;");
+        TextField passwordField = new TextField("passwordField");
 
-        loginForm.getChildren().addAll(usernameField, passwordField);
+//        PasswordField passwordField = new PasswordField();
+//        passwordField.setPromptText("Password");
+//        passwordField.setStyle("-fx-font-size: 17px;");
+
+        TextField databseNameField = new TextField();
+
+        loginButton.setOnAction(e->{
+            DB_PASS = passwordField.getText();
+            DB_USER = usernameField.getText();
+            DB_NAME = databseNameField.getText();
+                    Database db = Database.getInstance();
+
+                }
+
+                );
+
+
+
+        loginForm.getChildren().addAll(usernameField, passwordField, databseNameField,  loginButton);
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(3), loginForm);
         fadeTransition.setFromValue(0.0);
