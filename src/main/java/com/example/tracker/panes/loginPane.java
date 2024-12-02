@@ -19,7 +19,6 @@ import javafx.util.Duration;
 public class loginPane extends BorderPane {
     public loginPane(){
 
-        Button loginButton = new Button("Login");
 
         VBox loginForm = new VBox();
         loginForm.setSpacing(14);
@@ -32,27 +31,18 @@ public class loginPane extends BorderPane {
         usernameField.setPromptText("Username");
         usernameField.setStyle("-fx-font-size: 17px;");
 
-        TextField passwordField = new TextField("passwordField");
 
-//        PasswordField passwordField = new PasswordField();
-//        passwordField.setPromptText("Password");
-//        passwordField.setStyle("-fx-font-size: 17px;");
+        PasswordField passwordField = new PasswordField();
+        passwordField.setPromptText("Password");
+        passwordField.setStyle("-fx-font-size: 17px;");
 
         TextField databseNameField = new TextField();
 
-        loginButton.setOnAction(e->{
-            DB_PASS = passwordField.getText();
-            DB_USER = usernameField.getText();
-            DB_NAME = databseNameField.getText();
-                    Database db = Database.getInstance();
-
-                }
-
-                );
 
 
 
-        loginForm.getChildren().addAll(usernameField, passwordField, databseNameField,  loginButton);
+
+        loginForm.getChildren().addAll(usernameField, passwordField, databseNameField);
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(3), loginForm);
         fadeTransition.setFromValue(0.0);
@@ -62,6 +52,15 @@ public class loginPane extends BorderPane {
         Button login = new Button("login");
         login.setStyle("-fx-background-color: #ff6347; -fx-text-fill: black; -fx-font-size: 16px;");
         loginForm.getChildren().add(login);
+        login.setOnAction(e->{
+                    DB_PASS = passwordField.getText();
+                    DB_USER = usernameField.getText();
+                    DB_NAME = databseNameField.getText();
+                    Database db = Database.getInstance();
+
+                }
+
+        );
 
         this.setCenter(loginForm);
 
