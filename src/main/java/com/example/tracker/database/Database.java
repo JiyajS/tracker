@@ -28,9 +28,9 @@ public class Database {
             System.out.println("Database connection established!");
 
             // Create tables
-            createTable(DBConst.TABLE_USER, CREATE_TABLE_USER, connection);
-            createTable(DBConst.TABLE_ALLOCATION, CREATE_TABLE_ALLOCATION, connection);
-            createTable(DBConst.TABLE_SAVINGS, CREATE_TABLE_SAVINGS, connection);
+            createTable(DBConst.TABLE_USER, DBConst.CREATE_TABLE_USER, connection);
+            createTable(DBConst.TABLE_ALLOCATION, DBConst.CREATE_TABLE_ALLOCATION, connection);
+            createTable(DBConst.TABLE_SAVINGS, DBConst.CREATE_TABLE_SAVINGS, connection);
 
         } catch (Exception e) {
             e.printStackTrace();
