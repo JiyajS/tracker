@@ -4,7 +4,9 @@ package com.example.tracker.panes;
 import static com.example.tracker.database.Const.*;
 import static com.example.tracker.database.DBConst.*;
 
+import com.example.tracker.budgetTracker;
 import com.example.tracker.database.Database;
+import com.example.tracker.scenes.userFormScene;
 import javafx.scene.layout.BorderPane;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
@@ -52,18 +54,31 @@ public class loginPane extends BorderPane {
         Button login = new Button("login");
         login.setStyle("-fx-background-color: #ff6347; -fx-text-fill: black; -fx-font-size: 16px;");
         loginForm.getChildren().add(login);
-        login.setOnAction(e->{
-                    DB_PASS = passwordField.getText();
-                    DB_USER = usernameField.getText();
-                    DB_NAME = databseNameField.getText();
-                    Database db = Database.getInstance();
+        login.setOnAction(e -> {
+            DB_USER = usernameField.getText();
+            DB_PASS = passwordField.getText();
+            DB_NAME = databseNameField.getText();
 
-                }
-
-        );
+            if (connectToDatabase()) {
+                budgetTracker.mainStage.setScene(new userFormScene());
+            } else {
+                System.err.println("Invalid credentials. Please try again.");
+            }
+        });
 
         this.setCenter(loginForm);
+    }
 
-
+    private boolean connectToDatabase() {
+        try {
+            Database db = Database.getInstance();
+            if (db != null) {
+                System.out.println("Database connected successfully.");
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println("Database connection failed: ");
+        }
+        return false;
     }
 }

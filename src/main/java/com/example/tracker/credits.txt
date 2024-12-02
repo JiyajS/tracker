@@ -1,0 +1,3 @@
+DB_USER = "jshah"
+DB_PASSWORD = "c80eqc80eq"
+DB_NAME = "jshahmd"
