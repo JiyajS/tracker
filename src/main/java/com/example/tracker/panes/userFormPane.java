@@ -35,6 +35,9 @@ public class userFormPane extends BorderPane { // Pascal case for class name
 
         // Create the "Next" button
         Button nextButton = new Button("Next");
+        nextButton.setOnAction(e->{
+            budgetTracker.mainStage.setScene(new allocationFormScene());
+        });
 
         // Create the navigation bar with buttons
         Button users = new Button("Users");
