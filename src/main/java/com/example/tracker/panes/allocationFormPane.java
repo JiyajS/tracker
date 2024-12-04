@@ -17,23 +17,22 @@ public class allocationFormPane extends BorderPane {
     public allocationFormPane(){
         Label idLabel = new Label("ID:");
         TextField idField = new TextField();
-        idField.setPrefWidth(200); // Increase the size of the text field
+        idField.setPrefWidth(200);
 
         Label rentLabel = new Label("Rent:");
         TextField rentField = new TextField();
-        rentField.setPrefWidth(200); // Increase the size of the text field
-
+        rentField.setPrefWidth(200);
         Label installmentLabel = new Label("Installment:");
         TextField installmentField = new TextField();
-        installmentField.setPrefWidth(200); // Increase the size of the text field
+        installmentField.setPrefWidth(200);
 
         Label groceryLabel = new Label("Grocery:");
         TextField groceryField = new TextField();
-        groceryField.setPrefWidth(200); // Increase the size of the text field
+        groceryField.setPrefWidth(200);
 
         Label billsLabel = new Label("Bills:");
         TextField billsField = new TextField();
-        billsField.setPrefWidth(200); // Increase the size of the text field
+        billsField.setPrefWidth(200);
 
         Label othersLabel = new Label("Others:");
         TextField othersField = new TextField();
@@ -68,7 +67,7 @@ public class allocationFormPane extends BorderPane {
         });
 
 
-        HBox navBar = new HBox(20, users, allocation, savings, logout); // 20px gap between buttons
+        HBox navBar = new HBox(20, users, allocation, savings, logout);
         navBar.setAlignment(Pos.CENTER); // Center the buttons in the HBox
 
         // Layout setup for the form
